@@ -21,12 +21,22 @@ class Penjualan_model extends CI_Model{
             [
             'field' => 'kode_item',
             'label' => 'Kode Produk',
-            'rules' => 'is_unique[master_diskon_kelipatan.kode_item]|required',
+            'rules' => 'required',
             ] ,
             [
             'field' => 'min_kuantiti',
             'label' => 'Minimum kuantiti',
             'rules' => 'required',
+            ] ,
+            [
+            'field' => 'min_kuantiti2',
+            'label' => 'Minimum kuantiti ke-2',
+            'rules' => 'greater_than['.$this->input->post("min_kuantiti").']',
+            ] ,
+            [
+            'field' => 'min_kuantiti3',
+            'label' => 'Minimum kuantiti ke-3',
+            'rules' => 'greater_than['.$this->input->post("min_kuantiti2").']',
             ] ,
             [
             'field' => 'diskon',
@@ -38,13 +48,39 @@ class Penjualan_model extends CI_Model{
 
     function simpandatadiskon(){
         $post = $this->input->post();
-        $array = array(
-            'kode_item'=>$post["kode_item"],
-            'min_kuantiti'=>$post["min_kuantiti"],
-            'diskon'=>bilanganbulat($post["diskon"]),
-            'tanggal_berakhir'=>$post["tanggal_berakhir"]
-        );
-        $this->db->insert("master_diskon_kelipatan", $array);
+        $kd=$post["kode_item"];
+        $end=$post["tanggal_berakhir"];
+
+        
+        if (!empty($post['diskon'])) {
+            $array = array( 
+                    'kode_item'=>$kd,
+                    'min_kuantiti'=>$post["min_kuantiti"],
+                    'diskon'=>bilanganbulat($post["diskon"]),
+                    'tanggal_berakhir'=>$end
+            );
+            $this->db->insert("master_diskon_kelipatan", $array);
+        }
+        
+        if (!empty($post['diskon2'])) {
+            $array = array( 
+                'kode_item'=>$kd,
+                'min_kuantiti'=>$post["min_kuantiti2"],
+                'diskon'=>bilanganbulat($post["diskon2"]),
+                'tanggal_berakhir'=>$end
+            );
+            $this->db->insert("master_diskon_kelipatan", $array);
+        }
+        if (!empty($post['diskon3'])) {
+            $array = array( 
+                'kode_item'=>$kd,
+                'min_kuantiti'=>$post["min_kuantiti3"],
+                'diskon'=>bilanganbulat($post["diskon3"]),
+                'tanggal_berakhir'=>$end
+            );
+            $this->db->insert("master_diskon_kelipatan", $array);
+        } 
+
         return TRUE;
     }
 

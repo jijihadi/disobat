@@ -146,7 +146,7 @@ class Laporan_model extends CI_Model{
         $this->db->select("a.id_komisi, a.id_penjualan, a.tgl_transaksi,
          b.nama_spg, a.total, b.kontak, c.komisi, c.jumlah, d.nama_item");
         $this->db->from("master_komisi a");
-        $this->db->join('master_spg b','a.id_komisi = b.id');
+        $this->db->join('master_spg b','a.id_spg = b.id');
         $this->db->join('komisi_detail c','a.id_komisi = c.id_komisi');
         $this->db->join('master_item d','c.id_barang = d.kode_item');
         if(!empty($params['search']['spg'])){

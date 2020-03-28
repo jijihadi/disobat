@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<head>  
 		<meta charset="UTF-8"> 
 		<link rel="shortcut icon" href="<?php echo base_url()?>/assets/images/favicon.png" type="image/ico">   
-		<title>Apotek Mama</title>    
+		<title>PT Airlangga sentral internasional</title>    
 		<meta name="author" content="Paber">  
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<link rel="stylesheet" href="<?php echo base_url()?>/assets/vendor/bootstrap/css/bootstrap.css" />
@@ -102,15 +102,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                </div>
                             </div> 
                             <div class="form-group min_kuantiti">
-                                <label class="col-sm-3 control-label">Kuantiti Minimal  Pembelian<span class="required">*</span></label>
+                                <label class="col-sm-3 control-label">Beli Minimal 1<span class="required">*</span></label>
                                 <div class="col-sm-9">
                                     <input type="number" name="min_kuantiti" class="form-control" value="1"  required/>
                                 </div>
                             </div>   
                             <div class="form-group diskon">
-                                <label class="col-sm-3 control-label">Diskon<span class="required">*</span></label>
+                                <label class="col-sm-3 control-label">Diskon 1<span class="required">*</span></label>
                                 <div class="col-sm-9">
                                     <input type="text" name="diskon" class="form-control mask_price" required/>
+                                </div>
+                            </div>  
+                            <div class="form-group min_kuantiti2">
+                                <label class="col-sm-3 control-label">Beli Minimal 2</label>
+                                <div class="col-sm-9">
+                                    <input type="number" name="min_kuantiti2" class="form-control" value="5"  />
+                                </div>
+                            </div>   
+                            <div class="form-group diskon2">
+                                <label class="col-sm-3 control-label">Diskon 2</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="diskon2" class="form-control mask_price" />
+                                </div>
+                            </div>  
+                            <div class="form-group min_kuantiti3">
+                                <label class="col-sm-3 control-label">Beli Minimal 3</label>
+                                <div class="col-sm-9">
+                                    <input type="number" name="min_kuantiti3" class="form-control" value="10"  />
+                                </div>
+                            </div>   
+                            <div class="form-group diskon3">
+                                <label class="col-sm-3 control-label">Diskon 3</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="diskon3" class="form-control mask_price" />
                                 </div>
                             </div>  
                     </div>
@@ -313,6 +337,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }); 
                 e.preventDefault(); 
             });  
+            
             function hapus(elem){ 
 		        var dataId = $(elem).data("id"); 
                 document.getElementById("idddelete").setAttribute('value', dataId);  

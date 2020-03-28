@@ -2,21 +2,21 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!doctype html>
 <html class="fixed sidebar-left-collapsed">
-    <head>  
-		<meta charset="UTF-8"> 
-		<link rel="shortcut icon" href="<?php echo base_url()?>/assets/images/favicon.png" type="image/ico">   
-		<title>PT Airlangga sentral internasional</title>    
-		<meta name="author" content="Paber"> 
+    <head>
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" href="<?php echo base_url()?>/assets/images/favicon.png" type="image/ico">
+		<title>PT Airlangga sentral internasional</title>
+		<meta name="author" content="Paber">
 		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   		<link rel="stylesheet" href="<?php echo base_url()?>assets/vendor/bootstrap/css/bootstrap.css" />
 		<link rel="stylesheet" href="<?php echo base_url()?>assets/vendor/font-awesome/css/font-awesome.css" />
 		<link rel="stylesheet" href="<?php echo base_url()?>assets/vendor/magnific-popup/magnific-popup.css" />
 		<link rel="stylesheet" href="<?php echo base_url()?>assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
-		<link rel="stylesheet" href="<?php echo base_url()?>assets/stylesheets/theme.css" /> 
-		<link rel="stylesheet" href="<?php echo base_url()?>assets/stylesheets/skins/default.css" /> 
-		<link rel="stylesheet" href="<?php echo base_url()?>assets/stylesheets/theme-custom.css"> 
-		<script src="<?php echo base_url()?>assets/vendor/modernizr/modernizr.js"></script>  
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/stylesheets/theme.css" />
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/stylesheets/skins/default.css" />
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/stylesheets/theme-custom.css">
+		<script src="<?php echo base_url()?>assets/vendor/modernizr/modernizr.js"></script>
 	</head>
 	<body class="bgbody">
 		<section class="body">
@@ -31,9 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<!-- end: sidebar -->
 
 				<section role="main" class="content-body">
-					<header class="page-header">  
-						<h2>Master Data</h2>  
-					</header>  
+					<header class="page-header">
+						<h2>Master Data</h2>
+					</header>
 
 					<!-- start: page -->
 					<section class="content-with-menu content-with-menu-has-toolbar media-gallery">
@@ -42,11 +42,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<a href="#" class="inner-menu-expand" data-open="inner-menu">
 									Show Bar <i class="fa fa-chevron-right"></i>
 								</a>
-							</div> 
+							</div>
 							<menu id="content-menu" class="inner-menu" role="menu">
 								<div class="nano">
-									<div class="nano-content"> 
-							
+									<div class="nano-content">
+
 										<div class="inner-menu-toggle-inside">
 											<a href="#" class="inner-menu-collapse">
 												<i class="fa fa-chevron-up visible-xs-inline"></i><i class="fa fa-chevron-left hidden-xs-inline"></i> Hide Bar
@@ -55,10 +55,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												Show Bar <i class="fa fa-chevron-down"></i>
 											</a>
 										</div>
-							
-										<div class="inner-menu-content">  
-							
-											<div class="sidebar-widget m-none"> 
+
+										<div class="inner-menu-content">
+
+											<div class="sidebar-widget m-none">
 												<div class="widget-content">
 													<ul class="mg-folders">
                                                     <?php if( $this->session->userdata('kategori')==31){?>
@@ -67,9 +67,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															<div class="item-options">
 																<a href="<?php echo base_url()?>master/dokter">
 																	<i class="fa fa-arrow-circle-o-left"></i>
-																</a> 
+																</a>
 															</div>
-														</li> 
+														</li>
                                                     <?php
                                                     }?>
                                                     <?php if( $this->session->userdata('kategori')==31){?>
@@ -78,9 +78,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															<div class="item-options">
 																<a href="<?php echo base_url()?>master/pembeli">
 																	<i class="fa fa-arrow-circle-o-left"></i>
-																</a> 
+																</a>
 															</div>
-														</li> 
+														</li>
                                                     <?php
                                                     }?>
                                                     <?php if( $this->session->userdata('kategori')==31){?>
@@ -89,10 +89,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															<div class="item-options">
 																<a href="<?php echo base_url()?>master/supplier">
 																	<i class="fa fa-arrow-circle-o-left"></i>
-																</a> 
+																</a>
 															</div>
-														</li> 
-                                                    <?php 
+														</li>
+                                                    <?php
                                                     }?>
                                                     <?php if( $this->session->userdata('kategori')==31){?>
 														<li>
@@ -100,9 +100,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															<div class="item-options">
 																<a href="<?php echo base_url()?>master/itemkategori">
 																	<i class="fa fa-arrow-circle-o-left"></i>
-																</a> 
+																</a>
 															</div>
-														</li> 
+														</li>
                                                     <?php
                                                     }?>
                                                     <?php if( $this->session->userdata('kategori')==31){?>
@@ -111,9 +111,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															<div class="item-options">
 																<a href="<?php echo base_url()?>master/satuan">
 																	<i class="fa fa-arrow-circle-o-left"></i>
-																</a> 
+																</a>
 															</div>
-														</li> 
+														</li>
                                                     <?php
                                                     }?>
                                                     <?php if( $this->session->userdata('kategori')==31){?>
@@ -122,9 +122,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															<div class="item-options">
 																<a href="<?php echo base_url()?>master/merk">
 																	<i class="fa fa-arrow-circle-o-left"></i>
-																</a> 
+																</a>
 															</div>
-														</li> 
+														</li>
                                                     <?php
                                                     }?>
                                                     <?php if( $this->session->userdata('kategori')==31 || $this->session->userdata('kategori')==33){?>
@@ -133,9 +133,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															<div class="item-options">
 																<a href="<?php echo base_url()?>master/items">
 																	<i class="fa fa-arrow-circle-o-left"></i>
-																</a> 
+																</a>
 															</div>
-														</li> 
+														</li>
                                                     <?php
                                                     }?>
                                                     <?php if( $this->session->userdata('kategori')==31){?>
@@ -144,10 +144,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															<div class="item-options">
 																<a href="<?php echo base_url()?>master/racikan">
 																	<i class="fa fa-arrow-circle-o-left"></i>
-																</a> 
+																</a>
 															</div>
-														</li> 
-                                                    <?php 
+														</li>
+                                                    <?php
                                                     }?>
                                                     <?php if( $this->session->userdata('kategori')==31){?>
 														<li>
@@ -155,21 +155,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															<div class="item-options">
 																<a href="<?php echo base_url()?>master/spg">
 																	<i class="fa fa-arrow-circle-o-left"></i>
+																</a>
+															</div>
+														</li>
+                                                    <?php
+                                                    }?>
+                                                    <?php if( $this->session->userdata('kategori')==31){?>
+														<li>
+															<a href="<?php echo base_url()?>master/operasional" class="menu-item"><i class="fa fa-folder"></i> Master Biaya Operasional</a>
+															<div class="item-options">
+																<a href="<?php echo base_url()?>master/operasional">
+																	<i class="fa fa-arrow-circle-o-left"></i>
 																</a> 
 															</div>
-														</li> 
-                                                    <?php 
+														</li>
+                                                    <?php
                                                     }?>
 													</ul>
 												</div>
 											</div>
-							 
+
 										</div>
 									</div>
 								</div>
 							</menu>
-							<div class="inner-body mg-main"> 
-                                <div class="row" style="margin-top:-30px;"> 
+							<div class="inner-body mg-main">
+                                <div class="row" style="margin-top:-30px;">
                                     <div class="col-md-6 col-lg-12 col-xl-6">
                                         <div class="row">
                                             <div class="col-md-12 col-lg-6 col-xl-6">
@@ -187,7 +198,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                     <div class="info">
                                                                     <strong class="amount"><?php echo $total_dokter;?> orang</strong>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -208,7 +219,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                     <div class="info">
                                                                         <strong class="amount"><?php echo $total_pembeli;?> orang</strong>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -229,7 +240,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                     <div class="info">
                                                                         <strong class="amount"><?php echo $total_supplier;?> perusahaan</strong>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -250,13 +261,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                     <div class="info">
                                                                         <strong class="amount"><?php echo $total_kategori;?> Kategori</strong>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </section>
                                             </div>
-                                            
+
                                             <div class="col-md-12 col-lg-6 col-xl-6">
                                                 <section class="panel panel-featured-left panel-featured-secondary">
                                                     <div class="panel-body">
@@ -272,7 +283,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                     <div class="info">
                                                                         <strong class="amount"><?php echo $total_satuan;?> Satuan</strong>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -293,7 +304,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                     <div class="info">
                                                                         <strong class="amount"><?php echo $total_merk;?> Merk</strong>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -314,13 +325,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                     <div class="info">
                                                                     <strong class="amount"><?php echo $total_item;?> Produk</strong>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </section>
                                             </div>
-                                            
+
                                             <div class="col-md-12 col-lg-6 col-xl-6">
                                                 <section class="panel panel-featured-left panel-featured-tertiary">
                                                     <div class="panel-body">
@@ -336,7 +347,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                     <div class="info">
                                                                         <strong class="amount"><?php echo $total_racikan;?> Racikan</strong>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -345,12 +356,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         </div>
                                     </div>
-                                </div> 
-                                <div class="row" style="margin-top:-30px;">  
+                                </div>
+                                <div class="row" style="margin-top:-30px;">
 
-                                    <div class="col-md-12"> 
+                                    <div class="col-md-12">
                                         <section class="panel">
-                                            <header class="panel-heading"> 
+                                            <header class="panel-heading">
                                                 <h2 class="panel-title">Produk Terlaris</h2>
                                             </header>
                                             <div class="panel-body">
@@ -364,14 +375,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                 <th>Total Terjual</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody> 
+                                                        <tbody>
                                                         </tbody>
                                                     </table>
                                                 </div>
                                             </div>
                                         </section>
                                         <section class="panel">
-                                            <header class="panel-heading"> 
+                                            <header class="panel-heading">
                                                 <h2 class="panel-title">Produk akan Kadaluarsa</h2>
                                             </header>
                                             <div class="panel-body">
@@ -385,13 +396,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                 <th>Tanggal Kadaluarsa</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody> 
+                                                        <tbody>
                                                         </tbody>
                                                     </table>
                                                 </div>
                                             </div>
-                                        </section> 
-                                    </div> 
+                                        </section>
+                                    </div>
 
                                 </div>
 							</div>
@@ -400,66 +411,66 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- end: page -->
 				</section>
 			</div>
- 
+
 		</section>
 
-		
+
 		<!-- Vendor -->
-		<script src="<?php echo base_url()?>assets/vendor/jquery/jquery.min.js"></script>  
+		<script src="<?php echo base_url()?>assets/vendor/jquery/jquery.min.js"></script>
 		<script src="<?php echo base_url()?>assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
 		<script src="<?php echo base_url()?>assets/vendor/bootstrap/js/bootstrap.js"></script>
 		<script src="<?php echo base_url()?>assets/vendor/nanoscroller/nanoscroller.js"></script>
 		<script src="<?php echo base_url()?>assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 		<script src="<?php echo base_url()?>assets/vendor/magnific-popup/magnific-popup.js"></script>
 		<script src="<?php echo base_url()?>assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
-		<script src="<?php echo base_url()?>assets/javascripts/theme.js"></script> 
-		<script src="<?php echo base_url()?>assets/javascripts/theme.init.js"></script>  
+		<script src="<?php echo base_url()?>assets/javascripts/theme.js"></script>
+		<script src="<?php echo base_url()?>assets/javascripts/theme.init.js"></script>
         <script>
 $.ajax({
         type: 'GET',
-        url: '<?php echo base_url()?>dashboard/produk_kadaluarsa', 
+        url: '<?php echo base_url()?>dashboard/produk_kadaluarsa',
         dataType 	: 'json',
-        success: function(response) { 
-            var i = 0; 
-            var datarow =''; 
+        success: function(response) {
+            var i = 0;
+            var datarow ='';
             $.each(response.datasub, function(i, itemsub) {
                 i = i + 1;
-                datarow+="<tr><td>"+i+"</td>"; 
-                datarow+="<td>"+itemsub.kode_item+"</td>"; 
-                datarow+="<td>"+itemsub.nama_item+"</td>"; 
-                datarow+="<td>"+itemsub.tgl_expired+"</td>";   
-                datarow+="</tr>"; 
-            });   
-            if(datarow == '' ){ 
+                datarow+="<tr><td>"+i+"</td>";
+                datarow+="<td>"+itemsub.kode_item+"</td>";
+                datarow+="<td>"+itemsub.nama_item+"</td>";
+                datarow+="<td>"+itemsub.tgl_expired+"</td>";
+                datarow+="</tr>";
+            });
+            if(datarow == '' ){
                 $('#kadaluarsa').append('<tr><td colspan="4" align="center"> Tidak ada produk akan kadaluarsa</td></tr>');
             }else{
                 $('#kadaluarsa').append(datarow);
             }
         }
-    }); 
+    });
 
     $.ajax({
         type: 'GET',
-        url: '<?php echo base_url()?>dashboard/produk_terlaris', 
+        url: '<?php echo base_url()?>dashboard/produk_terlaris',
         dataType 	: 'json',
-        success: function(response) { 
-            var i = 0; 
-            var datarow =''; 
+        success: function(response) {
+            var i = 0;
+            var datarow ='';
             $.each(response.datasub, function(i, itemsub) {
                 i = i + 1;
-                datarow+="<tr><td>"+i+"</td>"; 
-                datarow+="<td>"+itemsub.kode_item+"</td>"; 
-                datarow+="<td>"+itemsub.nama_item+"</td>"; 
-                datarow+="<td>"+itemsub.total+"</td>";   
-                datarow+="</tr>"; 
-            });   
-            if(datarow == '' ){ 
+                datarow+="<tr><td>"+i+"</td>";
+                datarow+="<td>"+itemsub.kode_item+"</td>";
+                datarow+="<td>"+itemsub.nama_item+"</td>";
+                datarow+="<td>"+itemsub.total+"</td>";
+                datarow+="</tr>";
+            });
+            if(datarow == '' ){
                 $('#produk_terlaris').append('<tr><td colspan="4" align="center"> Tidak ada produk data</td></tr>');
             }else{
                 $('#produk_terlaris').append(datarow);
             }
         }
-    }); 
+    });
         </script>
 
 	</body>
