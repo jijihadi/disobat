@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <option value="">Semua SPG</option>
                                             <?php foreach ($sales as $supp): ?>
                                             <option value="<?php echo $supp->id;?>"><?php echo $supp->nama_spg;?></option>
-                                            <?php endforeach; ?>
+                                             <?php endforeach; ?>
                                         </select> 
                                     </div>
                                 </div>

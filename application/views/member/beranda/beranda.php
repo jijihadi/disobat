@@ -1,303 +1,300 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
-?>
-<!doctype html>
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!doctype html>
 <html class="fixed sidebar-left-collapsed">
+	<head>  
+		<meta charset="UTF-8"> 
+		<link rel="shortcut icon" href="<?php echo base_url()?>/assets/images/favicon.png" type="image/ico">   
+		<title>PT Airlangga sentral internasional</title>    
+		<meta name="author" content="Paber"> 
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  		<link rel="stylesheet" href="<?php echo base_url()?>assets/vendor/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/vendor/font-awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/vendor/magnific-popup/magnific-popup.css" />
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/stylesheets/theme.css" /> 
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/stylesheets/skins/default.css" /> 
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/stylesheets/theme-custom.css"> 
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="<?php echo base_url() ?>/assets/images/favicon.png" type="image/ico">
-    <title>PT Airlangga sentral internasional</title>
-    <meta name="author" content="Paber">
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendor/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendor/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendor/magnific-popup/magnific-popup.css" />
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/stylesheets/theme.css" />
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/stylesheets/skins/default.css" />
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/stylesheets/theme-custom.css">
 
+		<!-- Specific Page Vendor CSS -->
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/vendor/morris/morris.css" />
 
-    <!-- Specific Page Vendor CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendor/morris/morris.css" />
+		<script src="<?php echo base_url()?>assets/vendor/modernizr/modernizr.js"></script>  
+	</head>
+	<body class="bgbody">
+		<section class="body">
 
-    <script src="<?php echo base_url() ?>assets/vendor/modernizr/modernizr.js"></script>
-</head>
-
-<body class="bgbody">
-    <section class="body">
-
-        <?php $this->load->view("komponen/header.php") ?>
-        <div class="inner-wrapper">
-            <?php $this->load->view("komponen/sidebar.php") ?>
-            <section role="main" class="content-body">
-                <header class="page-header">
-                    <h2>Dashboard</h2>
-                </header>
-                <!-- start: page -->
-                <section class="panel">
-                    <div class="panel-body">
-                        <div class="row">
+			<?php $this->load->view("komponen/header.php") ?>
+			<div class="inner-wrapper"> 
+				<?php $this->load->view("komponen/sidebar.php") ?>
+				<section role="main" class="content-body">
+					<header class="page-header">  
+						<h2>Dashboard</h2>  
+					</header>  
+					<!-- start: page --> 
+                    <section class="panel"> 
+                        <div class="panel-body">     
+                            <div class="row"> 
                             <div class="col-md-12 col-lg-12 col-xl-4">
                                 <div class="row">
                                     <div class="col-md-9 col-xl-12">
-                                        <section class="panel">
-                                            <header class="panel-heading">
-                                                <h2 class="panel-title">Jumlah Transaksi Penjualan 2 Minggu Terakhir</h2>
-                                            </header>
-                                            <div class="panel-body">
-                                                <div class="chart chart-md" id="GrafikPenjualan"></div>
-                                            </div>
+                                        <section class="panel"> 
+		                                     <header class="panel-heading">  
+												<h2 class="panel-title">Jumlah Transaksi Penjualan 2 Minggu Terakhir</h2>
+											</header>
+											<div class="panel-body">  
+												<div class="chart chart-md" id="GrafikPenjualan"></div> 
+											</div>
                                         </section>
-                                    </div>
+                                    </div> 
                                     <div class="col-md-3 col-xl-12">
                                         <section class="panel">
                                             <div class="panel-body bg-primary">
-                                                <div class="widget-summary">
+                                                <div class="widget-summary"> 
                                                     <div class="widget-summary-col">
                                                         <div class="summary">
                                                             <h4 class="title">Total Penjualan Hari Ini</h4>
                                                             <div class="info">
                                                                 <strong class="amount" id="penjualan_hari_ini"></strong>
                                                             </div>
-                                                        </div>
+                                                        </div> 
                                                     </div>
                                                 </div>
                                             </div>
                                         </section>
                                         <section class="panel">
                                             <div class="panel-body bg-primary">
-                                                <div class="widget-summary">
+                                                <div class="widget-summary"> 
                                                     <div class="widget-summary-col">
                                                         <div class="summary">
                                                             <h4 class="title">Total Penjualan Minggu Ini</h4>
                                                             <div class="info">
                                                                 <strong class="amount" id="penjualan_minggu_ini"></strong>
                                                             </div>
-                                                        </div>
+                                                        </div> 
                                                     </div>
                                                 </div>
                                             </div>
                                         </section>
                                         <section class="panel">
                                             <div class="panel-body bg-primary">
-                                                <div class="widget-summary">
+                                                <div class="widget-summary"> 
                                                     <div class="widget-summary-col">
                                                         <div class="summary">
                                                             <h4 class="title">Total Penjualan Bulan Ini</h4>
                                                             <div class="info">
                                                                 <strong class="amount" id="penjualan_bulan_ini"></strong>
                                                             </div>
-                                                        </div>
+                                                        </div> 
                                                     </div>
                                                 </div>
                                             </div>
                                         </section>
                                         <section class="panel">
                                             <div class="panel-body bg-primary">
-                                                <div class="widget-summary">
+                                                <div class="widget-summary"> 
                                                     <div class="widget-summary-col">
                                                         <div class="summary">
                                                             <h4 class="title">Total Piutang Belum Dibayar</h4>
                                                             <div class="info">
                                                                 <strong class="amount" id="piutang_belum_dibayar"></strong>
                                                             </div>
-                                                        </div>
+                                                        </div> 
                                                     </div>
                                                 </div>
                                             </div>
                                         </section>
-                                    </div>
+                                    </div> 
                                 </div>
                             </div>
+	                        </div> 
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                <section class="panel">
-                    <div class="panel-body">
+                    <section class="panel"> 
+                        <div class="panel-body">       
 
-                        <div class="row">
+                            <div class="row"> 
                             <div class="col-md-12 col-lg-12 col-xl-4">
                                 <div class="row">
                                     <div class="col-md-3 col-xl-12">
                                         <section class="panel">
                                             <div class="panel-body bg-primary">
-                                                <div class="widget-summary">
+                                                <div class="widget-summary"> 
                                                     <div class="widget-summary-col">
                                                         <div class="summary">
                                                             <h4 class="title">Total Hutang Belum Dibayar</h4>
                                                             <div class="info">
                                                                 <strong class="amount" id="total_hutang_belum_bayar"></strong>
                                                             </div>
-                                                        </div>
+                                                        </div> 
                                                     </div>
                                                 </div>
                                             </div>
                                         </section>
-                                    </div>
+                                    </div> 
                                     <div class="col-md-3 col-xl-12">
                                         <section class="panel">
                                             <div class="panel-body bg-primary">
-                                                <div class="widget-summary">
+                                                <div class="widget-summary"> 
                                                     <div class="widget-summary-col">
                                                         <div class="summary">
                                                             <h4 class="title">Hutang Akan Jatuh Tempo</h4>
                                                             <div class="info">
                                                                 <strong class="amount" id="akan_jatuh_tempo"></strong>
                                                             </div>
-                                                        </div>
+                                                        </div> 
                                                     </div>
                                                 </div>
                                             </div>
                                         </section>
-                                    </div>
+                                    </div> 
                                     <div class="col-md-3 col-xl-12">
                                         <section class="panel">
                                             <div class="panel-body bg-primary">
-                                                <div class="widget-summary">
+                                                <div class="widget-summary"> 
                                                     <div class="widget-summary-col">
                                                         <div class="summary">
                                                             <h4 class="title">Hutang Sudah Jatuh Tempo</h4>
                                                             <div class="info">
                                                                 <strong class="amount" id="sudah_jatuh_tempo"></strong>
                                                             </div>
-                                                        </div>
+                                                        </div> 
                                                     </div>
                                                 </div>
                                             </div>
                                         </section>
-                                    </div>
+                                    </div> 
                                     <div class="col-md-3 col-xl-12">
                                         <section class="panel">
                                             <div class="panel-body bg-primary">
-                                                <div class="widget-summary">
+                                                <div class="widget-summary"> 
                                                     <div class="widget-summary-col">
                                                         <div class="summary">
                                                             <h4 class="title">Sudah Dibayar Minggu Ini</h4>
                                                             <div class="info">
                                                                 <strong class="amount" id="dibayar_minggu_ini"></strong>
                                                             </div>
-                                                        </div>
+                                                        </div> 
                                                     </div>
                                                 </div>
                                             </div>
                                         </section>
-                                    </div>
+                                    </div> 
                                 </div>
                             </div>
+                            </div>
+                        
+
                         </div>
-
-
-                    </div>
-                </section>
-
-                <section class="panel">
-                    <div class="panel-body">
-                        <div class="row">
+                    </section>
+                    
+                    <section class="panel"> 
+                        <div class="panel-body">     
+                            <div class="row"> 
                             <div class="col-md-9 col-lg-12 col-xl-4">
                                 <div class="row">
                                     <div class="col-md-12 col-xl-12">
-                                        <section class="panel">
-                                            <header class="panel-heading">
-                                                <h2 class="panel-title">Pemasukan dan Pengeluaran 2 Minggu Terakhir</h2>
-                                            </header>
-                                            <div class="panel-body">
-                                                <div class="chart chart-md" id="GrafikCash"></div>
-                                            </div>
+                                        <section class="panel"> 
+		                                     <header class="panel-heading">  
+												<h2 class="panel-title">Pemasukan dan Pengeluaran 2 Minggu Terakhir</h2>
+											</header>
+											<div class="panel-body">  
+												<div class="chart chart-md" id="GrafikCash"></div> 
+											</div>
                                         </section>
-                                    </div>
+                                    </div>  
                                 </div>
                             </div>
+	                        </div> 
                         </div>
-                    </div>
-                </section>
-
-                <div class="row">
-                    <div class="col-md-5">
-                        <section class="panel">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-6 col-xl-12">
-                                        <section class="panel">
-                                            <div class="panel-body bg-primary">
-                                                <div class="widget-summary">
-                                                    <div class="widget-summary-col">
-                                                        <div class="summary">
-                                                            <h4 class="title">
-                                                                Jumlah Purchase Order
-                                                            </h4>
-                                                            <div class="info">
-                                                                <strong class="amount" id="total_po"></strong>
-                                                            </div>
+                    </section> 
+                    
+                    <div class="row">
+                        <div class="col-md-5">
+                            <section class="panel"> 
+                                <div class="panel-body"> 
+                                    <div class="row">
+                                        <div class="col-md-6 col-xl-12">
+                                            <section class="panel">
+                                                <div class="panel-body bg-primary">
+                                                    <div class="widget-summary"> 
+                                                        <div class="widget-summary-col">
+                                                            <div class="summary">
+                                                                <h4 class="title"> 
+                                                                    Jumlah Purchase Order
+                                                                </h4>
+                                                                <div class="info">
+                                                                    <strong class="amount" id="total_po"></strong>
+                                                                </div>
+                                                            </div> 
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </section>
-                                    </div>
-                                    <div class="col-md-6 col-xl-12">
-                                        <section class="panel">
-                                            <div class="panel-body bg-primary">
-                                                <div class="widget-summary">
-                                                    <div class="widget-summary-col">
-                                                        <div class="summary">
-                                                            <h4 class="title">
-                                                                Jumlah Pembelian
-                                                            </h4>
-                                                            <div class="info">
-                                                                <strong class="amount" id="total_pembelian"></strong>
-                                                            </div>
+                                            </section>
+                                        </div>
+                                        <div class="col-md-6 col-xl-12">
+                                            <section class="panel">
+                                                <div class="panel-body bg-primary">
+                                                    <div class="widget-summary"> 
+                                                        <div class="widget-summary-col">
+                                                            <div class="summary">
+                                                                <h4 class="title"> 
+                                                                    Jumlah Pembelian
+                                                                </h4>
+                                                                <div class="info">
+                                                                    <strong class="amount" id="total_pembelian"></strong>
+                                                                </div>
+                                                            </div> 
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </section>
+                                            </section>
+                                        </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-xl-12">
+                                            <section class="panel">
+                                                <div class="panel-body bg-primary">
+                                                    <div class="widget-summary"> 
+                                                        <div class="widget-summary-col">
+                                                            <div class="summary">
+                                                                <h4 class="title"> 
+                                                                    Jumlah Penerimaan
+                                                                </h4>
+                                                                <div class="info">
+                                                                    <strong class="amount" id="total_penerimaan"></strong>
+                                                                </div>
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                        <div class="col-md-6 col-xl-12">
+                                            <section class="panel">
+                                                <div class="panel-body bg-primary">
+                                                    <div class="widget-summary"> 
+                                                        <div class="widget-summary-col">
+                                                            <div class="summary">
+                                                                <h4 class="title"> 
+                                                                    Jumlah Retur Pembelian
+                                                                </h4>
+                                                                <div class="info">
+                                                                    <strong class="amount" id="total_retur"></strong>
+                                                                </div>
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div> 
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xl-12">
-                                        <section class="panel">
-                                            <div class="panel-body bg-primary">
-                                                <div class="widget-summary">
-                                                    <div class="widget-summary-col">
-                                                        <div class="summary">
-                                                            <h4 class="title">
-                                                                Jumlah Penerimaan
-                                                            </h4>
-                                                            <div class="info">
-                                                                <strong class="amount" id="total_penerimaan"></strong>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    </div>
-                                    <div class="col-md-6 col-xl-12">
-                                        <section class="panel">
-                                            <div class="panel-body bg-primary">
-                                                <div class="widget-summary">
-                                                    <div class="widget-summary-col">
-                                                        <div class="summary">
-                                                            <h4 class="title">
-                                                                Jumlah Retur Pembelian
-                                                            </h4>
-                                                            <div class="info">
-                                                                <strong class="amount" id="total_retur"></strong>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="panel">
+                            </section>
+                            <section class="panel">
                             <header class="panel-heading">
                                 <h2 class="panel-title">Komisi/Spg</h2>
                             </header>
@@ -344,59 +341,58 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </div>
                         </section>
                     </div>
-                    <div class="col-md-7">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                <h2 class="panel-title">Produk Terlaris</h2>
-                            </header>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-condensed mb-none" id="produk_terlaris">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Kode Item</th>
-                                                <th>Nama Produk</th>
-                                                <th>Total Terjual</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                        <div class="col-md-7"> 
+                            <section class="panel">
+                                <header class="panel-heading"> 
+                                    <h2 class="panel-title">Produk Terlaris</h2>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped table-condensed mb-none" id="produk_terlaris">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Kode Item</th>
+                                                    <th>Nama Produk</th>
+                                                    <th>Total Terjual</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody> 
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>
-                        </section>
-                        <section class="panel">
-                            <header class="panel-heading">
-                                <h2 class="panel-title">Produk akan Kadaluarsa</h2>
-                            </header>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-condensed mb-none" id="kadaluarsa">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Kode Item</th>
-                                                <th>Nama Produk</th>
-                                                <th>Tanggal Kadaluarsa</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                            </section>
+                            <section class="panel">
+                                <header class="panel-heading"> 
+                                    <h2 class="panel-title">Produk akan Kadaluarsa</h2>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped table-condensed mb-none" id="kadaluarsa">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Kode Item</th>
+                                                    <th>Nama Produk</th>
+                                                    <th>Tanggal Kadaluarsa</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody> 
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>
-                        </section>
+                            </section> 
+                        </div>
                     </div>
-                </div>
+					<!-- end: page -->
+				</section>
+			</div>
+		</section>
 
-                <!-- end: page -->
-            </section>
-        </div>
-    </section>
-
-    <!-- Vendor -->
-    <script src="<?php echo base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
+		<!-- Vendor -->
+        <script src="<?php echo base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
     <script src="<?php echo base_url() ?>assets/vendor/bootstrap/js/bootstrap.js"></script>
     <script src="<?php echo base_url() ?>assets/vendor/nanoscroller/nanoscroller.js"></script>

@@ -20,6 +20,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<link rel="stylesheet" href="<?php echo base_url()?>assets/vendor/pnotify/pnotify.custom.css" />
 		<link rel="stylesheet" href="<?php echo base_url()?>assets/vendor/isotope/jquery.isotope.css" />
 		<script src="<?php echo base_url()?>assets/vendor/modernizr/modernizr.js"></script>  
+		<!-- datepicer -->
+	    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	      <link rel="stylesheet" href="//resources/demos/style.css">
+	      <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+	      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	      <script>
+	      $( function() {
+	        $( "#datepicker" ).datepicker();
+	      });
+	      </script>
 		<style type="text/css">
 			.nama_produk{
 				overflow: hidden;
@@ -169,18 +179,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <section class="panel-featured-left panel-featured-primary">  
                             <div class="panel-body"> 
 							<div class="row">
-							    <div class="col-md-3"> 
-							    	<button type="button" class="mb-xs mt-xs mr-xs btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#modalHapus" id="canceltransaksi"  disabled="disabled">Cancel</button>
-							    </div> 
-							    <div class="col-md-3"> 
-							    	<button type="button" class="mb-xs mt-xs mr-xs btn btn-warning btn-lg btn-block"  data-toggle="modal" data-target="#modalHold" id="holdtransaksi"  disabled="disabled">Hold</button>
-							    </div> 
-							    <div class="col-md-3"> 
-							    	<button type="button" class="mb-xs mt-xs mr-xs btn btn-success btn-lg btn-block" onclick="struk()" id="paymenttransaksi" disabled="disabled">Bayar <small>(Tunai)</small></button>
-							    </div> 
-							    <div class="col-md-3"> 
-							    	<button type="button" class="mb-xs mt-xs mr-xs btn btn-success btn-lg btn-block" onclick="struk_k()" id="paymenttransaksikredit" disabled="disabled">Bayar <small>(Kredit)</small></button>
-							    </div> 
+							    <div class="col-md-12"> 
+							    	<button type="button" data-toggle="modal" data-target="#modal-payment" class="mb-xs mt-xs mr-xs btn btn-success btn-lg btn-block" id="paymenttransaksi" disabled="disabled">Bayar</button>
+							    </div>
 							 </div>
 							</div>
                         </section>
@@ -399,6 +400,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </tr>
                             </thead>
                             <tbody>
+                            	<tr>
+	                			 </tr>  
                             </tbody>
                         </table> 
                     </div>
@@ -519,7 +522,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="modal fade bd-example-modal-lg" id="modal-payment"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" style="width:60%">
                 <div class="modal-content">
-				 <?php echo form_open('penjualan/submitpayment',' id="FormulirPayment"');?>  
+				 <?php echo form_open('penjualan/submitpayment',' id="FormulirPayment"');?> 
 				 <input type="hidden" name="post_totalbelanja" id="post_totalbelanja" value="0">
                 <section class="panel panel-primary">   
                     <header class="panel-heading">	
@@ -529,37 +532,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3"> 
-								<div class="btn-group-vertical col-md-12">
-									<h3 class="text-semibold text-dark text-uppercase mb-none text-center">Nominal</h3>
-									<input type="hidden" id="Valtotalharusdibayar">
-									<button type="button"  class="btn btn-primary" id="totalharusdibayar"></button>
-									<button type="button" onclick="cash(this)" data-nominal="5000"  class="btn btn-success">Rp 5.000</button> 
-									<button type="button" onclick="cash(this)" data-nominal="10000"  class="btn btn-success">Rp 10.000</button> 
-									<button type="button" onclick="cash(this)" data-nominal="20000"  class="btn btn-success">Rp 20.000</button> 
-									<button type="button" onclick="cash(this)" data-nominal="50000"  class="btn btn-success">Rp 50.000</button> 
-									<button type="button" onclick="cash(this)" data-nominal="100000"  class="btn btn-success">Rp 100.000</button> 
-									<button type="button" onclick="cash(this)" data-nominal="200000"  class="btn btn-success">Rp 200.000</button>  
-									<button type="button" onclick="clearcash()" class="btn btn-danger">Clear</button>
+								<div class="row">
+									<div class="col-md-12"><br>
+								    	<button type="button" class="mb-xs mt-xs mr-xs btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#modalHapus" id="canceltransaksi">Cancel</button>
+								    </div>
+								    <div class="col-md-12"> 
+								    	<button type="button" class="mb-xs mt-xs mr-xs btn btn-warning btn-lg btn-block"  data-toggle="modal" data-target="#modalHold" id="holdtransaksi">Hold</button>
+								    </div>
 								</div>
 							</div> 
-							
                             <div class="col-md-9"> 
 								<section class="panel"> 
 								<div class="row">
                             		<div class="col-md-6">
 										<div class="form-group">
-											<label class="control-label">Total Dibayar</label>
-											<input type="text" name="totaldibayar[]" id="totaldibayar1" value="0" class="form-control mask_price" required />
+											<label class="control-label">Nama SPG / SALES</label>
+											<select class="form-control cara_bayar" name="nama_spg" id="nama_spg">
+											<?php foreach ($spg as $s): ?>
+											  	<option value="<?= $s['nama_spg']; ?>"><?= $s['nama_spg'] ?></option>
+											  <?php endforeach ?>  
+											</select> 
 										</div>
 									</div>
                             		<div class="col-md-6">
 										<div class="form-group"> 
-											<label class="control-label">Cara Bayar</label>
-											<select class="form-control cara_bayar" name="cara_bayar[]" id="cara_bayar1">  
-												<option value="cash">cash</option>
-												<option value="credit card">credit card</option>
-												<option value="debet">debet</option>
-											</select> 
+											<label class="control-label">Tanggal Jatuh Tempo</label>
+											<input type="text" autocomplete="off" name="tanggal_jatuh_tempo" id="datepicker" class="form-control datepicker">
 										</div>
 									</div> 
 								</div>
@@ -609,18 +607,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										</div>
 									</div> 
 								</div> 
-								<div class="row">
+								<div class="row my-4">
                             		<div class="col-md-12">
-										<div class="form-group">
-											<label class="control-label"></label>
-											<textarea rows="2" placeholder="Catatan Pembayaran" class="form-control" name="catatan[]"></textarea>
-										</div>
+										
 									</div> 
 								</div> 
-								<div class="row" id="tambah1">
+								<div class="row my-5" id="tambah1">
                             		<div class="col-md-12">
-										<div class="form-group"> 
-											<button type="button" class="mb-xs mt-xs mr-xs btn btn-primary btn-block" id="btntambah1"><i class="fa fa-plus"></i> Tambah Cara Bayar</button>
+										<div class="row form-group">
+											
 										</div>
 									</div> 
 								</div>
@@ -717,21 +712,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<h4 class="text-dark" id="TotalBelanja"></h4>
 											<input type="hidden" id="TotalBelanjaInt">
 										</th>
-										<th><h4>Total Dibayar</h4></th>
-										<th><h4 class="text-dark">Rp <span id="GrandTotalDibayar">0</span></h4></th>
-									</tr>
-									<tr>
 										<th><h4>Total Item</h4></th>
 										<th><h4 class="text-dark" id="TotalKuantiti"></h4></th>
-										<th><h4>Kembalian</h4></th>
-										<th><h4 class="text-dark">Rp <span id="Kembalian">0</span></h4></th>
 									</tr>
 								</table>
 							</div>
 						</div>
+						<hr>
                         <div class="row">
                             <div class="col-md-12 text-right"> 
-							<button type="submit" class="mb-xs mt-xs mr-xs btn btn-success btn-lg btn-block" id="submitPayment" disabled>Submit Payment</button>
+							<div class="row">
+								<div class="col-md-6"> 
+							    	<!-- <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary btn-lg btn-block" onclick="struk()" id="paymenttransaksi">Bayar <small>(Tunai)</small></button> -->
+							    	<button type="button" class="mb-xs mt-xs mr-xs btn btn-primary btn-lg btn-block" id="paymenttransaksi">Bayar <small>(Tunai)</small></button>
+							    </div> 
+							    <div class="col-md-6"> 
+							    	<!-- <button type="button" class="mb-xs mt-xs mr-xs btn btn-success btn-lg btn-block" onclick="struk_k()" id="paymenttransaksikredit">Bayar <small>(Kredit)</small></button> -->
+							    	<button type="button" class="mb-xs mt-xs mr-xs btn btn-success btn-lg btn-block" id="paymenttransaksikredit">Bayar <small>(Kredit)</small></button>
+							    </div>
+							</div>
                             </div>
                         </div>
                     </footer> 
@@ -864,7 +863,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$('#GrandTotalDibayar').html(formatNumber(nominal)); 
 			$('#Kembalian').html(formatNumber(kembalian)); 
 		}
-		document.getElementById("totalharusdibayar").addEventListener("click", function (e) { 
+		// document.getElementById("totalharusdibayar").addEventListener("click", function (e) { 
+		// 	var totalbelanja = document.getElementById("TotalBelanjaInt").value; 
+  //       	var nilai_1 = document.getElementById("totaldibayar1").value; 
+		// 	nilai_1 = nilai_1.replace(/\./g,'');
+  //       	var nilai_2 = document.getElementById("totaldibayar2").value; 
+		// 	nilai_2 = nilai_2.replace(/\./g,'');
+		// 	var nilaibayar = Number(nilai_1) + Number(nilai_2) ;
+		// 	var nominal =document.getElementById("Valtotalharusdibayar").value; 
+		// 	nominal = Number(nominal) + Number(nilaibayar); 
+		// 	paymentsubmit(totalbelanja,nominal);
+		// 	var kembalian = (nominal - totalbelanja) < 1 ? '0' : (nominal - totalbelanja) ;
+		// 	nominal = formatNumber(nominal);
+		// 	$('#totaldibayar1').val(nominal); 
+		// 	$('#GrandTotalDibayar').html(formatNumber(nominal)); 
+		// 	$('#Kembalian').html(formatNumber(kembalian)); 
+		// });
+		$('#totalharusdibayar').on("click", function (e) { 
 			var totalbelanja = document.getElementById("TotalBelanjaInt").value; 
         	var nilai_1 = document.getElementById("totaldibayar1").value; 
 			nilai_1 = nilai_1.replace(/\./g,'');
@@ -1027,54 +1042,60 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 });   
         	}
         }
-        document.getElementById("onwalkcustomer").addEventListener("click", function (e) {   
-            $('#customer').val('Walk in Customer');      
-            $('#customer_dipilih').val('');    
-            update_pembeli();
-        });
+        // document.getElementById("onwalkcustomer").addEventListener("click", function (e) {   
+        //     $('#customer').val('Walk in Customer');      
+        //     $('#customer_dipilih').val('');    
+        //     update_pembeli();
+        // });
         function pilihpembeli(elem){  
             var namapembeli = $(elem).data("namapembeli"); 
             var idpembeli = $(elem).data("id");   
+            // var tgl_masa = new Date($(elem).data("tgl_masa"));
+            // var now = new Date();
+            // var now1 = now.getMonth();
+            //var month = tgl_masa.getMonth() + 6;
+
+            //alert(month "");
+            // if (month > now1) {
+            // 	alert("tanggal masa masih kurang 6 bulan");
+            // } 
             $('#customer').val(namapembeli);      
             $('#customer_dipilih').val(idpembeli);    
             $('#modal-pembeli').modal('hide');  
             update_pembeli();
         }
  
-        // var tablepembeli = $('#pembelidata').DataTable({ 
-        // "ajax": { 
-        //     url : "<?php echo base_url()?>penjualan/datapembeli", 
-        //     type : 'GET'
-        //     }, 
-        // });
+        var tablepembeli = $('#pembelidata').DataTable({ 
+        "ajax": { 
+            url : "<?php echo base_url()?>penjualan/datapembeli", 
+            type : 'GET'
+            }, 
+        });
 
-		var data_pembeli = $('#pembelidata').DataTable({
-			ajax:{
-				url:"<?=base_url()?>penjualan/datapembeli",
-				type:"GET"
-			},
-			processing:true,
-			columns:[
-				{
-					data: 'nama_pembeli'
-				},
-				{	
-					data: 'no_sipa'
-				},
-				{	
-					data: 'apoteker'
-				},
-				{	
-					data: 'telepon'
-				},
-				{
-					data:null,
-					mRender:(data) =>{
-						return '<a onclick="pilihpembeli(elem)" data-namapembeli="'+data.nama_pembeli+'" data-id="'+data.id+'" class="mr-xs btn btn-info" role="button"><i class="fa fa-check-square-o"></i></a>'
-					}
-				}
-			]
-		});
+        // var data_pembeli = $('#pembelidata').DataTable({
+        // 	ajax: {
+        // 		url: "<?php echo base_url()?>penjualan/datapembeli",
+        // 		type: "GET"
+        // 	},
+        // 	processing: true,
+        // 	columns: [
+        // 		{
+        // 			data: 'nama_pembeli'
+        // 		},
+        // 		{
+        // 			data: 'no_sipa'
+        // 		},
+        // 		{
+        // 			data: 'apoteker'
+        // 		},
+        // 		{
+        // 			data: 'telepon'
+        // 		},
+        // 		{
+        // 			data: 'aksi'
+        // 		}
+        // 	]
+        // });
    
         var tablehold = $('#listhold').DataTable({ 
         "ajax": { 
@@ -1279,16 +1300,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 });  
             } 
             //keranjang();
+            /*paymenttransaksi
+paymenttransaksikredit*/
+            $(document).on('click','#modal-payment #paymenttransaksi',function(e) { // tombol paymenttransaksi sg ono ng modal payment
+            	// e.preventDefault()
+            	$('#modal-payment form').attr('action','<?=base_url()?>penjualan/struk?t='+idk)
+            	.submit()
+            })
+            $(document).on('click','#modal-payment #paymenttransaksikredit',function(e) { // tombol paymenttransaksikredit sg ono ng modal payment
+            	// e.preventDefault()
+            	$('#modal-payment form').attr('action','<?=base_url()?>penjualan/struk_kredit?t='+idk)
+            	.submit()
+            })
+			// function struk(){
+   //          	var url = '<?=base_url()?>penjualan/struk?t=' + idk;
+			// 	window.location.href = url;
+			// 	// $('#FormulirHold').a
+   //      	}
 
-			function struk(){
-            	var url = '<?=base_url()?>penjualan/struk?t=' + idk;
-				window.location.href = url;
-        	}
-
-			function struk_k(){
-            	var url = '<?=base_url()?>penjualan/struk_kredit?t=' + idk;
-				window.location.href = url;
-        	}
+			// function struk_k(){
+   //          	var url = '<?=base_url()?>penjualan/struk_kredit?t=' + idk;
+			// 	window.location.href = url;
+   //      	}
 			
 	        document.getElementById("Batalkan").addEventListener("click", function (e) { 
 				PNotify.removeAll();

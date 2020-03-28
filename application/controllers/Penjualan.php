@@ -223,6 +223,7 @@ class Penjualan extends CI_Controller {
         //get the posts data
         $data['posts'] = $this->penjualan_model->getRows(array('limit'=>$this->perPage)); 
         $data['dokter'] = $this->db->get('master_dokter')->result();
+        $data['spg'] = $this->penjualan_model->get_spg();
         $this->load->view('member/penjualan/kasir',$data); 
     }  
  
@@ -413,14 +414,22 @@ class Penjualan extends CI_Controller {
         $query = $this->db->get("master_pembeli");
         $data = []; 
         foreach($query->result() as $r) { 
-            $data[] = array(   
+            $data[] = array(
             $this->security->xss_clean($r->nama_pembeli), 
             $this->security->xss_clean($r->no_sipa), 
             $this->security->xss_clean($r->apoteker), 
             $this->security->xss_clean($r->telepon),
-            '    <a onclick="pilihpembeli(this)" data-namapembeli="'.$r->nama_pembeli.'" data-id="'.$r->id.'" class="mt-xs mr-xs btn btn-info" role="button"><i class="fa fa-check-square-o"></i></a>
+            '    <a onclick="pilihpembeli(this)" data-tgl_masa="'.$r->tgl_masa.'" data-namapembeli="'.$r->nama_pembeli.'" data-id="'.$r->id.'" class="mt-xs mr-xs btn btn-info" role="button"><i class="fa fa-check-square-o"></i></a>
             '
             ); 
+            // $data[] = array(
+            // 'nama_pembeli' => $this->security->xss_clean($r->nama_pembeli), 
+            // 'no_sipa' => $this->security->xss_clean($r->no_sipa), 
+            // 'apoteker' => $this->security->xss_clean($r->apoteker), 
+            // 'telepon' => $this->security->xss_clean($r->telepon),
+            // 'aksi' => '<a onclick="pilihpembeli(this)" data-namapembeli="'.$r->nama_pembeli.'" data-id="'.$r->id.'" class="mt-xs mr-xs btn btn-info" role="button"><i class="fa fa-check-square-o"></i></a>
+            // '
+            // ); 
         }  
         $result = array( 
                  "draw" => $draw, 
@@ -558,6 +567,8 @@ class Penjualan extends CI_Controller {
         // $this->db->join('keranjang c', 'a.id_keranjang = c.id'); 
         $this->db->where('a.id_keranjang', $id);
         // $this->db->group_by('a.id');
+        $post = $this->input->post('nama_spg');
+        // data bary
         $this->db->order_by('a.id', 'DESC'); 
         $detail = $this->db->get();
         $data['keranjang'] =  $detail->result_array();
@@ -566,7 +577,18 @@ class Penjualan extends CI_Controller {
         $data['apotik'] =  $apotik->result_array();
         $data['status'] =  "Cash";
         $data['kepada'] =  "Costumer Toko";
-        $this->load->view('member/penjualan/struk', $data);
+        $data['spg'] = $this->input->post('nama_spg');
+        //$this->load->view('member/penjualan/struk', $data);
+        $html = $this->load->view('member/penjualan/struk', $data);
+        $html1 = $this->output->get_output($html);
+
+        $this->load->library('pdf');
+
+        $this->dompdf->loadHtml($html1);
+        $this->dompdf->setPaper('A4', 'portrait');
+        $this->dompdf->render();
+        $this->dompdf->stream('Struk', array('Attachment'=>0));
+
     }
 
     public function struk_kredit()
@@ -600,6 +622,9 @@ class Penjualan extends CI_Controller {
         $data['status'] =  "Kredit";
         $data['tempo'] = date('d M Y', strtotime('+7 days'));
         $data['kepada'] =  "Costumer Toko";
-        $this->load->view('member/penjualan/struk', $data);
+         $data['spg'] = $this->input->post('nama_spg');
+         $this->load->library('pdf');
+        $view = $this->load->view('member/penjualan/struk', $data);
+        $this->pdf->generate($view);
     }
 }

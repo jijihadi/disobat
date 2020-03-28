@@ -95,14 +95,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 																</a> 
 															</div>
 														</li> 
-                                                        <li>
-															<a href="<?php echo base_url()?>laporan/spg" class="menu-item"><i class="fa fa-folder"></i> Laporan Komisi SPG</a>
-															<div class="item-options">
-																<a href="<?php echo base_url()?>laporan/spg">
-																	<i class="fa fa-arrow-circle-o-left"></i>
-																</a> 
-															</div>
-														</li> 
 													</ul>
 												</div>
 											</div> 

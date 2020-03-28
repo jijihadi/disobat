@@ -17,6 +17,11 @@
 		<link rel="stylesheet" href="<?php echo base_url()?>assets/vendor/pnotify/pnotify.custom.css" />
 		<link rel="stylesheet" href="<?php echo base_url()?>assets/vendor/isotope/jquery.isotope.css" />
 		<script src="<?php echo base_url()?>assets/vendor/modernizr/modernizr.js"></script>  
+        <style type="text/css" media="print">
+            #tabel1{
+                width: 280px;
+            }
+        </style>
 	</head>
     <body style="background:white;">
         
@@ -27,15 +32,17 @@
 		</td>
         <?php
         }?>
-        <td align="center"><h3> Faktur </h3></td>
         <td></td>
+        <td style="text-align: right;"><h3> Faktur Penjualan</h3></td>
     </tr>
     <tr>
-        <td><small><?=$key['alamat']." | ".$key['telepon']?></small>
-        <br><small><?="NPWP: ".$key['no_npwp']?></small></td>
-        <td></td>
-        <td align="right">
-        </td>
+        <?php foreach ($apoteker as $a): ?>
+            <td><small><?=$a['alamat']." | ".$a['telepon']?></small>
+            <br><small><?="NPWP: ".$a['no_npwp']?></small></td>
+            <td></td>
+            <td align="right">
+            </td>
+        <?php endforeach ?>
     </tr>
     <tr>
         <td>
@@ -57,7 +64,7 @@
                     <td>T.O.P</td><td>:</td><td><?=$status.$akr.date('d/m/Y')?></td>
                 </tr>
                 <tr>
-                    <td>No. Order/Sales</td><td>:</td><td><?=$penjualan?>/<?=$this->session->userdata('nama_admin')?></td>
+                    <td>No. Order/Sales</td><td>:</td><td><?=$penjualan?>/<?= $spg; ?></td>
                 </tr>
                 <?php if($status=="Kredit"){?>
                         
@@ -140,7 +147,7 @@
         </td>
         <td></td>
         <td>
-            <table class="table table-borderless" style=" border: 1px solid black;">
+            <table id="tabel1" class="table table-borderless" style=" border: 1px solid black;">
                 <tr>
                     <td>Total 1</td><td>:</td><td align="right"><?=rupiah($ttl1)?></td>
                 </tr>
@@ -174,8 +181,8 @@
                 foreach ($apoteker as $key) {
                     ?>
                 <td align="center"><?=ucwords(strtolower($key['nama_pembeli']))?></td>    
-                <td align="center"><?=ucwords(strtolower($keys['apoteker']))?>
-                    <br><small><?=$keys['no_apoteker']?></small>
+                <td align="center"><?=ucwords(strtolower($key['apoteker']))?>
+                    <br><small><?=$key['no_apoteker']?></small>
                 </td>
 
             </tr>
